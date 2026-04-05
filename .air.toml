@@ -1,0 +1,33 @@
+# .air.toml
+
+# Working directory
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # Command to build your project
+  cmd = "go build -o ./tmp/main ./cmd/server"
+  # Binary to run
+  bin = "./tmp/main"
+  # Exclude some folders from watching
+  exclude_dir = ["assets", "tmp", "vendor", "node_modules"]
+  # File extensions to watch
+  include_ext = ["go", "tpl", "tmpl", "html", "env"]
+  exclude_ext = ["swp"]
+  # Delay after file change (ms)
+  delay = 1000
+
+[log]
+  # Show log time
+  time = true
+
+[color]
+  # Pretty colors in logs
+  main = "magenta"
+  watcher = "cyan"
+  build = "yellow"
+  runner = "green"
+
+[misc]
+  # Delete tmp directory on exit
+  clean_on_exit = true
